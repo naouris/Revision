@@ -1,0 +1,44 @@
+<link href="{{ asset('style.css') }}" rel="stylesheet">
+
+<form method="post" action="{{ path('searchEquipe') }}">
+    <input type="text" name="search" id="search" placeholder="search">
+    <br>
+
+    <input type="submit" value="chercher">
+</form>
+
+
+<h1 >la liste des EQUIPES</h1>
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td> nom</td>
+        <td> classe</td>
+        <td> projet</td>
+        <td>action</td>
+    </tr>
+
+    {% for equipe in ordreA %}
+        <tr>
+            <td>
+                {{ equipe.id }}</td>
+            <td>
+                {{ equipe.nom }}</td>
+            <td>
+                {{ equipe.classe }}</td>
+            <td>
+                {{ equipe.projet }}</td>
+            <td><a href="{{ path('Uppdetequipeee',{'id':equipe.id}) }}"> modifier</a>
+                <a href="{{ path('supEquipeee',{'id':equipe.id}) }}"> supprimer</a></td>
+
+        </tr>
+
+
+    {% endfor %}
+    <tr>
+        <td colspan="5">
+            <a href="{{ path('addequipeee') }}"><h3 align="center" >Ajoute</h3></a>
+
+        </td>
+    </tr>
+</table>

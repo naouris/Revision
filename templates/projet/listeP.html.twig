@@ -1,0 +1,32 @@
+{% extends 'base-font.html.twig' %}
+{% block body %}
+    <h1 >la liste des PROJET</h1>
+<table border="1" class="table table-striped">
+    <tr>
+        <td>id</td>
+        <td> libelle</td>
+        <td> categorie</td>
+        <td>action</td>
+    </tr>
+
+    {% for projet in tabP %}
+        <tr>
+            <td>
+                {{ projet.id }}</td>
+            <td>
+                {{ projet.libelle }}</td>
+            <td>
+                {{ projet.categorie }}</td>
+            <td><a href="{{ path('UppdetPro',{'id':projet.id}) }}"> modifier</a>
+                <a href="{{ path('supProjet',{'id':projet.id}) }}"> supprimer</a></td>
+
+        </tr>
+
+
+    {% endfor %}
+    <tr>
+        <td colspan="4">
+            <a href="{{ path('addProjet') }}"><h3 align="center" >Ajoute</h3></a>
+        </td>
+    </tr>
+{% endblock %}
